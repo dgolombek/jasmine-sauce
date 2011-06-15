@@ -14,3 +14,8 @@ Getting Started
 3. bundle exec sauce config <YOUR_SAUCE_USENRAME> <YOUR_SAUCE_API_KEY>
 4. rails generate sauce:jasmine
 5. rake jasmine:ci:sauce
+
+Rails 2.3
+---------
+
+`4. echo "begin; load 'sauce/jasmine/jasmine-sauce.rake'; rescue LoadError; end" >> Rakefile`
