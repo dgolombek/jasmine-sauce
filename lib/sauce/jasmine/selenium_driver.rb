@@ -22,7 +22,7 @@ module Sauce
       end
 
       def test_results
-        eval_js("var result = jsApiReporter.results(); if (window.Prototype && Object.toJSON) { Object.toJSON(result) } else { JSON.stringify(result) }")
+        eval_js("var result = {}; var apiResult = jsApiReporter.results(); for(var i in apiResult) { if(apiResult.hasOwnProperty(i)) { result[i] = {result: apiResult[i].result}; } } if(window.Prototype && Object.toJSON) { Object.toJSON(result); } else { JSON.stringify(result); }")
       end
 
       def job_id
