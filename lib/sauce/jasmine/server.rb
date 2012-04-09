@@ -1,3 +1,5 @@
+require 'guard/jasmine/server'
+
 module Sauce
   module Jasmine
     class Server
@@ -9,12 +11,8 @@ module Sauce
       end
 
       def start
-        @port = ::Jasmine::find_unused_port
-        Thread.new do
-          handler = Rack::Handler.default
-          handler.run ::Jasmine.app(@config), :Port => @port, :AccessLog => []
-        end
-        ::Jasmine::wait_for_listener(@port, "jasmine server")
+        @port = 8080
+        ::Guard::Jasmine::Server.start(:auto, 8080, 'test', 'spec/javascrips')
       end
 
       def stop

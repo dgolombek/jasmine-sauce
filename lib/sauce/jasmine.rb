@@ -1,4 +1,4 @@
-require 'jasmine'
+require 'guard/jasmine'
 
 require 'sauce/jasmine/config'
 require 'sauce/jasmine/server'

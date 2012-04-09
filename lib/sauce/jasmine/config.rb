@@ -1,9 +1,8 @@
-require 'jasmine/config'
 require 'sauce/jasmine/selenium_driver'
 
 module Sauce
   module Jasmine
-    class Config < ::Jasmine::Config
+    class Config
       attr_accessor :tunnel_domain
 
       def initialize

@@ -1,8 +1,7 @@
 require 'sauce'
-require 'jasmine/selenium_driver'
 module Sauce
   module Jasmine
-    class SeleniumDriver < ::Jasmine::SeleniumDriver
+    class SeleniumDriver
       def initialize(os, browser, browser_version, domain)
         host = host[7..-1] if host =~ /^http:\/\//
           base_url = "http://#{domain}"
@@ -11,6 +10,22 @@ module Sauce
                                       :browser_version => browser_version,
                                       :browser_url => base_url,
                                       :job_name => "Jasmine")
+      end
+
+      def connect
+        @driver.start
+        @driver.open("/jasmine")
+      end
+
+      def disconnect
+        @driver.stop
+      end 
+
+      def eval_js(script)
+        escaped_script = "'" + script.gsub(/(['\\])/) { '\\' + $1 } + "'"
+
+        result = @driver.get_eval("#{escaped_script}")
+        JSON.parse("{\"result\":#{result}}")["result"]
       end
 
       def tests_have_finished?

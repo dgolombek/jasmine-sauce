@@ -22,6 +22,6 @@ Gem::Specification.new do |s|
   ]
 
   s.add_runtime_dependency("sauce", [">= 0.19.1"])
-  s.add_runtime_dependency("jasmine", ["~> 1.0.1.1"])
+  s.add_runtime_dependency "guard-jasmine"
 end
 
