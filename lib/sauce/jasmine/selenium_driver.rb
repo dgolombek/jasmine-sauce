@@ -24,9 +24,10 @@ module Sauce
       def eval_js(script)
         escaped_script = "'" + script.gsub(/(['\\])/) { '\\' + $1 } + "'"
 
-        result = @driver.get_eval("#{escaped_script}")
+        result = @driver.get_eval("try { eval(#{escaped_script}, this.browserbot.getUserWindow()); } catch(err) { this.browserbot.getUserWindow().eval(#{escaped_script}); }")
         JSON.parse("{\"result\":#{result}}")["result"]
       end
+
 
       def tests_have_finished?
         eval_js("jsApiReporter && jsApiReporter.finished")
