@@ -45,8 +45,8 @@ end
 Modify the browser strings as necessary, look here for details on what to put in there
 https://saucelabs.com/docs/sauce-ondemand/browsers
 
-Changing Seettings
-------------------
+Changing Settings
+-----------------
 By default, jasmine-sauce will run a server on port 8080 using guard-jasmine's auto server setting.
 You can override these defaults to use a different port or server (such as thin).
 
