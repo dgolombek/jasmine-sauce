@@ -1,8 +1,8 @@
 module Sauce
   module Jasmine
     class Runner
-      def initialize
-        @config = Config.new
+      def initialize(options)
+        @config = Config.new(options)
         @server = Server.new(@config)
       end
 
@@ -20,7 +20,7 @@ module Sauce
         puts "Setting up Sauce Connect..."
         @tunnel = Sauce::Connect.new(:domain => @config.tunnel_domain,
                                          :host => @server.host,
-                                         :port => @server.port,
+                                         :port => @config.port,
                                          :quiet => @config.quiet_tunnel?)
         @tunnel.wait_until_ready
         puts "Sauce Connect ready"

@@ -11,8 +11,7 @@ module Sauce
       end
 
       def start
-        @port = 8080
-        ::Guard::Jasmine::Server.start(:auto, 8080, 'test', 'spec/javascrips')
+        ::Guard::Jasmine::Server.start(@config.server, @config.port, 'test', 'spec/javascrips')
       end
 
       def stop
