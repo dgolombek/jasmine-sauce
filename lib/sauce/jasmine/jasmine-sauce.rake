@@ -4,7 +4,8 @@ namespace :jasmine do
   namespace :ci do
     desc 'Run Jasmine tests in the cloud'
     task :sauce do
-      runner = Sauce::Jasmine::Runner.new
+      options = {:port => ENV['PORT'], :server => ENV['SERVER']}
+      runner = Sauce::Jasmine::Runner.new(options)
       runner.run
     end
   end

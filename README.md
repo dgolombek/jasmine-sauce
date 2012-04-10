@@ -12,8 +12,9 @@ Getting Started
 1. Add jasmine-sauce to your Gemfile
 2. bundle install
 3. bundle exec sauce config <YOUR_SAUCE_USENRAME> <YOUR_SAUCE_API_KEY>
-4. rails generate sauce:jasmine
-5. rake jasmine:ci:sauce
+4. install jasmine for your current rails version as directed in the [guard-jasmine README](https://github.com/netzpirat/guard-jasmine)
+5. rails generate sauce:jasmine
+6. rake jasmine:ci:sauce
 
 Rails 2.3
 ---------
@@ -43,3 +44,12 @@ end
 
 Modify the browser strings as necessary, look here for details on what to put in there
 https://saucelabs.com/docs/sauce-ondemand/browsers
+
+Changing Settings
+-----------------
+By default, jasmine-sauce will run a server on port 8080 using guard-jasmine's auto server setting.
+You can override these defaults to use a different port or server (such as thin).
+
+```rake jasmine:ci:sauce PORT=<PORT_NUMBER> SERVER=<SERVER_TYPE>```
+
+For details on the available server types, see the [guard-jasmine server types](https://github.com/netzpirat/guard-jasmine#server-options)
