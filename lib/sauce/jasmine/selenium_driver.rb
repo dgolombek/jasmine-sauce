@@ -9,6 +9,8 @@ module Sauce
                                       :os => os,
                                       :browser_version => browser_version,
                                       :browser_url => base_url,
+                                      :record_video => false,
+                                      :record_screenshots => false,
                                       :job_name => "Jasmine")
       end
 
