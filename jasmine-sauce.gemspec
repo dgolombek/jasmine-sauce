@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
     "Rakefile",
   ] + Dir.glob("lib/**/*")
   s.homepage = %q{http://github.com/saucelabs/jasmine-sauce}
+  s.license = 'MIT'
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.4.2}
   s.test_files = [
